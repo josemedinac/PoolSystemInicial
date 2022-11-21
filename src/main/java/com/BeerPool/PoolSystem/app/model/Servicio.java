@@ -1,12 +1,24 @@
 package com.BeerPool.PoolSystem.app.model;
 
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Servicio")
 public class Servicio {
+	@Id
 	private int ID_servicio;
     private String nom_servicio;
     private String oferta;
     private String estado;
     private double tarifaXmin;
-    
+    @OneToMany(mappedBy ="servicio")
+    List<Agenda> agendas;
+     
     public Servicio() {
     	
     }
@@ -50,6 +62,6 @@ public class Servicio {
 		this.tarifaXmin = tarifaXmin;
 	}
     
-
+	
 }
 

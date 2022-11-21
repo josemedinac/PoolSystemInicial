@@ -1,8 +1,18 @@
 package com.BeerPool.PoolSystem.app.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Agenda")
 public class Agenda {
-	private int ID_agenda, idUsuario, ID_servicio;
+	@Id
+	private int ID_agenda;
+	private int idUsuario, ID_servicio;
     private String fecha_reserva,hora_inicio,hora_fin,observaciones,estado;
+    @ManyToOne
     private Servicio servicio;
     
     public Agenda() {
